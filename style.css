@@ -1,0 +1,83 @@
+/*
+
+--- TYPOGRAPHY SYSTEM
+
+      FONT SIZE SYSTEM (px)
+        10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+--- WHITESPACE
+
+      SPACING SYSTEM (px)
+        2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 
+
+*/
+
+:root {
+  --color-primary: #c12d2a;
+  --color-accent: #e76c1f;
+  --color-bg: #000;
+  --color-text-primary: #fff;
+  --color-text-secondary: #b3b3b3;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: var(--color-bg);
+}
+
+.content-width {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: var(--color-primary);
+  height: 40px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 24px;
+  padding-block: 16px;
+}
+
+.header-inner img {
+  width: 120px;
+  stroke: white;
+  fill: white;
+}
+
+.header-inner button {
+  width: 40px;
+  stroke: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header-inner ul {
+  list-style: none;
+}
+
+.hero-img {
+  background-image: url("assets/img/heroburger.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+  width: 50%;
+  position: relative;
+  left: 20%;
+  top: 100px;
+}
