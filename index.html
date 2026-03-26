@@ -5,23 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bros Kitchen</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css/menuitem.css" />
+    <link rel="stylesheet" href="styles.css/basket.css" />
+    <script src="script.js" defer></script>
+    <script src="scripts.js/food.js" defer></script>
+    <script src="scripts.js/templates.js" defer></script>
   </head>
-  <body>
+  <body onload="init()">
     <header>
       <div class="content-width">
         <div class="header-inner">
           <a href="index.html">
-            <img src="assets/img/BrosKitchenLogo.svg" />
+            <img class="logo-header" src="assets/img/BrosKitchenLogo.svg" />
           </a>
-          <button><img src="assets/icons/burgermenuicon.svg" /></button>
+          <button>
+            <img class="burger-icon" src="assets/icons/burgermenuicon.svg" />
+          </button>
         </div>
       </div>
     </header>
     <main>
       <div class="content-width">
         <section class="hero-section">
-          <img class="hero-img" />
+          <img class="hero-img" src="assets/img/heroimg.jpg" />
+          <h1>Bros Kitchen</h1>
+          <h2>Dein Bros, wenn dein Hunger real wird</h2>
+          <h4>
+            Burger & Pizza nach Hause geliefert in Köln -
+            Lecker.Frisch.Authentisch.
+          </h4>
         </section>
+        <div class="layout">
+          <section class="menu-section" id="menu"></section>
+
+          <section class="basket" id="basket">
+            <h2 class="basket-title">Your Basket</h2>
+            <div class="basket-item">
+              <p class="basket-item__title">Veggie mushroom black burger</p>
+              <div class="basket-item-price-container">
+                <span class="basket-item__amount">-1+</span>
+                <span class="basket-item__price">16,90E</span>
+              </div>
+            </div>
+            <div class="basket-subtotal-container">
+              <span class="basket-subtotal__title">Subtotal</span>
+              <span class="basket-subtotal__price">16,90$</span>
+            </div>
+            <div class="basket-deliver-container">
+              <span class="basket-deliver__title">Delivery fee</span>
+              <span class="basket-deliver__price">11,90$</span>
+            </div>
+            <div class="break-line"></div>
+            <div class="basket-total-container">
+              <span class="basket-total__title">Total</span>
+              <span class="basket-total__price">41,69$</span>
+            </div>
+            <button class="basket-button">Buy now (41,69$)</button>
+          </section>
+        </div>
       </div>
     </main>
     <footer></footer>

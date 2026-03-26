@@ -15,9 +15,13 @@
 :root {
   --color-primary: #c12d2a;
   --color-accent: #e76c1f;
-  --color-bg: #000;
-  --color-text-primary: #fff;
+  --test: ;
+  --color-bg: #0f0f0f;
+  --color-text-primary: #363534;
   --color-text-secondary: #b3b3b3;
+  --color-menu-item-bg: #010101;
+  --color-basket-bg: white;
+  --color-basket-item-bg: #fdeadc;
 }
 
 * {
@@ -53,7 +57,7 @@ header {
   padding-block: 16px;
 }
 
-.header-inner img {
+.logo-header {
   width: 120px;
   stroke: white;
   fill: white;
@@ -67,17 +71,44 @@ header {
   cursor: pointer;
 }
 
+.burger-icon {
+  width: 40px;
+}
+
 .header-inner ul {
   list-style: none;
 }
 
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .hero-img {
-  background-image: url("assets/img/heroburger.jpg");
-  background-position: center;
-  background-size: cover;
   height: 50vh;
-  width: 50%;
+  width: 100%;
+  object-fit: cover;
   position: relative;
-  left: 20%;
-  top: 100px;
+  padding-top: 100px;
+}
+
+.menu-section {
+  margin-top: 100px;
+  flex: 2;
+}
+
+.category {
+  background-color: var(--color-accent);
+  padding: 12px;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.left-side {
+  flex: 2;
 }
