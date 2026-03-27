@@ -22,6 +22,7 @@
   flex: 1;
   flex-direction: column;
   gap: 8px;
+  color: var(--color-text-primary);
 }
 
 .menu-item__header {
@@ -37,4 +38,6 @@
   padding-block: 4px;
   align-self: flex-end;
   cursor: pointer;
+  background-color: var(--color-accent);
+  color: white;
 }

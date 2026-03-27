@@ -1,8 +1,7 @@
 function init() {
+  setEventListeners();
   updateUI();
 }
-
-init();
 
 function renderMenu() {
   const menu = document.getElementById("menu");
@@ -109,4 +108,35 @@ function changeButtonText(id) {
 function toggleBasket() {
   const basket = document.getElementById("basket");
   basket.classList.toggle("hidden");
+}
+
+function showOrderedDialog() {
+  let dialog = document.getElementById("ordered-dialog");
+  let basket = document.getElementById("basket");
+  basket.classList.add("hidden");
+  dialog.showModal();
+  document.body.style.overflow = "hidden";
+}
+
+function closeOrderedDialog() {
+  let dialog = document.getElementById("ordered-dialog");
+  let basket = document.getElementById("basket");
+  basket.classList.remove("hidden");
+  dialog.close();
+  document.body.style.overflow = "visible";
+  updateUI();
+}
+
+function order() {
+  showOrderedDialog();
+  cart = [];
+}
+
+function setEventListeners() {
+  let dialog = document.getElementById("ordered-dialog");
+  dialog.addEventListener("click", (event) => {
+    if (event.target == dialog) {
+      closeOrderedDialog();
+    }
+  });
 }

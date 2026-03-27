@@ -15,11 +15,10 @@
 :root {
   --color-primary: #c12d2a;
   --color-accent: #e76c1f;
-  --test: ;
   --color-bg: #0f0f0f;
   --color-text-primary: #363534;
   --color-text-secondary: #b3b3b3;
-  --color-menu-item-bg: #010101;
+  --color-menu-item-bg: #fdeadc;
   --color-basket-bg: white;
   --color-basket-item-bg: #fdeadc;
 }
@@ -110,4 +109,56 @@ header {
 
 .left-side {
   flex: 2;
+}
+
+#ordered-dialog {
+  width: 400px;
+  height: 200px;
+  /* background-color: var(--color-basket-item-bg); */
+  background-color: var(--color-accent);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  border: none;
+}
+
+.delivery-img {
+  width: 30px;
+  height: 30px;
+}
+
+.dialog-header {
+  display: flex;
+  padding: 20px;
+}
+
+.button-close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.dialog-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-header-text {
+  color: var(--color-text-primary);
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.dialog-main-text {
+  color: var(--color-text-primary);
+  font-size: 20px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }

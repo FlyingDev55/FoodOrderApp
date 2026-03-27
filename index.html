@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles/menuitem.css" />
     <link rel="stylesheet" href="styles/basket.css" />
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/templates.js" defer></script>
+    <script src="script.js" defer></script>
   </head>
-  <body>
+  <body onload="init()">
     <header>
       <div class="content-width">
         <div class="header-inner">
@@ -52,11 +55,22 @@
             <div id="basket-total"></div>
           </section>
         </div>
+        <dialog id="ordered-dialog">
+          <div class="dialog-container">
+            <div class="dialog-header">
+              <button class="button-close" onclick="closeOrderedDialog()">
+                <img class="close-img" src="assets/icons/close.svg" />
+              </button>
+            </div>
+            <div class="dialog-main">
+              <img class="c" src="assets/icons/deliveryImage.svg" />
+              <p class="dialog-header-text">Order confirmed</p>
+              <p class="dialog-main-text">Your food is on the way!</p>
+            </div>
+          </div>
+        </dialog>
       </div>
     </main>
     <footer></footer>
-    <script src="scripts/menu.js"></script>
-    <script src="scripts/templates.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

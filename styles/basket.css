@@ -28,6 +28,11 @@
   font-weight: bold;
 }
 
+.basket-item-container {
+  width: 200px;
+  margin: 12px;
+}
+
 .basket-item {
   display: flex;
   flex-direction: column;
@@ -56,6 +61,7 @@
 .basket-item-price-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .break-line {
