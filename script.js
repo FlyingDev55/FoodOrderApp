@@ -1,8 +1,8 @@
 function init() {
-  var basket = document.getElementById("basket");
-  basket.innerHTML = getEmptyBasketHtml();
-  renderMenu();
+  updateUI();
 }
+
+init();
 
 function renderMenu() {
   const menu = document.getElementById("menu");
@@ -25,12 +25,76 @@ function addToCart(id) {
   updateUI();
 }
 
+function decrease(id) {
+  const cartItem = cart.find((cartItem) => cartItem.id == id);
+
+  if (!cartItem) return;
+
+  cartItem.quantity--;
+
+  if (cartItem.quantity <= 0) {
+    cart = cart.filter((cartItem) => cartItem.id !== id);
+  }
+
+  updateUI();
+}
+
 function updateUI() {
   renderMenu();
   renderCart();
 }
 
-function renderCart() {}
+function renderCart() {
+  resetBasketHtml();
+  const basketItems = document.getElementById("basket-items");
+  const basketTotal = document.getElementById("basket-total");
+
+  if (cart.length === 0) {
+    document.getElementById("basket").innerHTML = getEmptyBasketHtml();
+    return;
+  }
+
+  basketItems.innerHTML = cart
+    .map((cartItem) => {
+      const menuItem = menuItems.find((menuItem) => menuItem.id == cartItem.id);
+
+      return getBasketItemHtml(menuItem, cartItem);
+    })
+    .join("");
+
+  let subtotal = calculateSubTotal();
+  let fee = calculateFee(subtotal);
+  let total = calculateTotal(subtotal, fee);
+
+  basketTotal.innerHTML = getBasketTotalHtml(subtotal, fee, total);
+}
+
+function resetBasketHtml() {
+  const basket = document.getElementById("basket");
+  basket.innerHTML = `<h2 class="basket-title">Your Basket</h2>
+                      <div id="basket-items"></div>
+                      <div id="basket-total"></div>`;
+}
+
+function calculateSubTotal() {
+  let subTotal = 0;
+
+  for (let index = 0; index < cart.length; index++) {
+    const menuItem = menuItems.find((menuItem) => menuItem.id == cart[0].id);
+
+    subTotal += menuItem.price * cart[0].quantity;
+  }
+
+  return subTotal;
+}
+
+function calculateFee(subTotal) {
+  return subTotal / 10;
+}
+
+function calculateTotal(subTotal, fee) {
+  return subTotal + fee;
+}
 
 function changeButtonText(id) {
   const menuItem = cart.find((cartItem) => cartItem.id === id);
@@ -40,4 +104,9 @@ function changeButtonText(id) {
   } else {
     return "Added " + menuItem.quantity;
   }
+}
+
+function toggleBasket() {
+  const basket = document.getElementById("basket");
+  basket.classList.toggle("hidden");
 }
