@@ -210,13 +210,14 @@ footer {
 
 /************************************ Media Queries ********************************************/
 /**************************************** Tablet ***********************************************/
-/**********************************  (max-width: 500px) *******************************/
+/**********************************  (max-width: 650px) *******************************/
 /************************************ Media Queries ********************************************/
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .layout {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .footer-desktop {
@@ -246,5 +247,11 @@ footer {
   .footer-mobile button {
     background: transparent;
     border: none;
+    cursor: pointer;
+  }
+
+  .menu-section {
+    margin-top: 100px;
+    flex: 1;
   }
 }
