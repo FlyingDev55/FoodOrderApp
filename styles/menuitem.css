@@ -6,7 +6,7 @@
   padding: 12px;
   gap: 24px;
   max-width: 600px;
-  margin-left: 40px;
+  margin-inline: 40px;
 }
 
 .menu-img {
@@ -40,4 +40,50 @@
   cursor: pointer;
   background-color: var(--color-accent);
   color: white;
+}
+
+/************************************ Media Queries ********************************************/
+/**************************************** Tablet ***********************************************/
+/**********************************  (max-width: 500px) *******************************/
+/************************************ Media Queries ********************************************/
+
+@media (max-width: 500px) {
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    margin-block: 16px;
+    padding: 12px;
+    gap: 16px;
+    max-width: 500px;
+    margin-inline: 12px;
+  }
+
+  .menu-img {
+    width: 100%;
+  }
+
+  .menu-item__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--color-text-primary);
+  }
+
+  .menu-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-item__button {
+    width: 110px;
+    border-radius: 12px;
+    border: none;
+    padding-block: 4px;
+    align-self: center;
+    cursor: pointer;
+    background-color: var(--color-accent);
+    color: white;
+  }
 }

@@ -110,6 +110,11 @@ function toggleBasket() {
   basket.classList.toggle("hidden");
 }
 
+function toggleTrashButton() {
+  const trashButton = document.getElementById("trash-button");
+  trashButton.classList.toggle("hidden");
+}
+
 function showOrderedDialog() {
   let dialog = document.getElementById("ordered-dialog");
   let basket = document.getElementById("basket");

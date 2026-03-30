@@ -157,8 +157,34 @@
   cursor: pointer;
 }
 
-.trash-icon-fixed {
+.trash-button-absolute {
   position: absolute;
   top: 8px;
   right: 6px;
+  background: transparent;
+  border: none;
+}
+
+.trash-button-absolute.hidden {
+  visibility: hidden;
+}
+
+/************************************ Media Queries ********************************************/
+/**************************************** Tablet ***********************************************/
+/**********************************  (max-width: 500px) *******************************/
+/************************************ Media Queries ********************************************/
+
+@media (max-width: 500px) {
+  .basket {
+    width: 100%;
+    max-height: 70vh;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    bottom: 60px;
+  }
+
+  .basket.hidden {
+    transform: translateY(100%);
+  }
 }

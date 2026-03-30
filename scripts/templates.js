@@ -38,7 +38,9 @@ function getBasketItemHtml(menuItem, cartItem) {
   return `
         <div class="basket-item-container">
           <div class="basket-item">
-            <img class="trash-icon trash-icon-fixed hidden" src="assets/icons/delete.png"/>
+            <button id="trash-button" class="trash-button-absolute hidden">
+              <img class="trash-icon" src="assets/icons/delete.png"/>
+            </button>
             <p class="basket-item__title">${menuItem.name}</p>
             <div class="basket-item-price-container">
 
