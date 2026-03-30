@@ -4,7 +4,7 @@
   position: sticky;
   top: 20px;
   right: 0;
-  max-height: 800px;
+  max-height: 70vh;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border: 1px solid #2a2a2a;
@@ -31,6 +31,7 @@
 .basket-item-container {
   width: 200px;
   margin: 12px;
+  position: relative;
 }
 
 .basket-item {
@@ -43,7 +44,7 @@
 }
 
 #basket-items {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .basket-item__title {
@@ -88,4 +89,76 @@
 .basket-emptynote {
   padding: 32px;
   text-align: center;
+}
+
+.btn-cart-icon {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.basket-item__amount {
+  display: flex;
+  align-items: center;
+}
+
+.trash-icon {
+  width: 20px;
+}
+
+.minus-icon {
+  width: 14px;
+}
+
+.plus-icon {
+  width: 12apx;
+  height: 16px;
+}
+
+.basket-subtotal-container,
+.basket-deliver-container,
+.basket-total-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.basket-button-container {
+  display: flex;
+  justify-content: center;
+  margin-block: 16px;
+}
+
+#basket-total {
+  width: 100%;
+  padding-inline: 44px;
+  margin-top: 20px;
+}
+
+.mg-bottom {
+  margin-bottom: 8px;
+}
+
+/* width */
+#basket-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+#basket-items::-webkit-scrollbar-thumb {
+  background: var(--color-basket-item-bg);
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+#basket-items::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+
+.trash-icon-fixed {
+  position: absolute;
+  top: 8px;
+  right: 6px;
 }
