@@ -2,6 +2,7 @@ function init() {
   setEventListeners();
   renderMenu();
   renderCart();
+  if (window.innerWidth <= 650) toggleBasket();
 }
 
 function renderMenu() {
@@ -68,8 +69,6 @@ function updateUI(id) {
 }
 
 function renderCart() {
-  if (window.innerWidth <= 650) toggleBasket();
-
   resetBasketHtml();
 
   if (cart.length === 0) {
