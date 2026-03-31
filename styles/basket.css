@@ -163,6 +163,7 @@
   right: 6px;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .trash-button-absolute.hidden {

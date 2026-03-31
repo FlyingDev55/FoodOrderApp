@@ -1,6 +1,7 @@
 function init() {
   setEventListeners();
-  updateUI();
+  renderMenu();
+  renderCart();
 }
 
 function renderMenu() {
@@ -12,6 +13,10 @@ function renderMenu() {
     .join("");
 }
 
+function renderMenuItemButton(id) {
+  document.getElementById(`menu-item-btn-${id}`).innerHTML = getButtonText(id);
+}
+
 function addToCart(id) {
   const menuItem = cart.find((item) => item.id === id);
 
@@ -21,7 +26,17 @@ function addToCart(id) {
     cart.push({ id: id, quantity: 1 });
   }
 
-  updateUI();
+  updateUI(id);
+}
+
+function getButtonText(id) {
+  const menuItem = cart.find((cartItem) => cartItem.id === id);
+
+  if (!menuItem || menuItem.quantity === 0) {
+    return "Add to basket";
+  } else {
+    return "Added " + menuItem.quantity;
+  }
 }
 
 function decrease(id) {
@@ -35,11 +50,20 @@ function decrease(id) {
     cart = cart.filter((cartItem) => cartItem.id !== id);
   }
 
-  updateUI();
+  updateUI(id);
 }
 
-function updateUI() {
-  renderMenu();
+function removeCartItem(id) {
+  const cartItem = cart.find((cartItem) => cartItem.id == id);
+
+  if (!cartItem) return;
+
+  cart = cart.filter((cartItem) => cartItem.id !== id);
+  updateUI(id);
+}
+
+function updateUI(id) {
+  renderMenuItemButton(id);
   renderCart();
 }
 
@@ -79,9 +103,11 @@ function calculateSubTotal() {
   let subTotal = 0;
 
   for (let index = 0; index < cart.length; index++) {
-    const menuItem = menuItems.find((menuItem) => menuItem.id == cart[0].id);
+    const menuItem = menuItems.find(
+      (menuItem) => menuItem.id == cart[index].id,
+    );
 
-    subTotal += menuItem.price * cart[0].quantity;
+    subTotal += menuItem.price * cart[index].quantity;
   }
 
   return subTotal;
@@ -93,16 +119,6 @@ function calculateFee(subTotal) {
 
 function calculateTotal(subTotal, fee) {
   return subTotal + fee;
-}
-
-function changeButtonText(id) {
-  const menuItem = cart.find((cartItem) => cartItem.id === id);
-
-  if (!menuItem || menuItem.quantity === 0) {
-    return "Add to basket";
-  } else {
-    return "Added " + menuItem.quantity;
-  }
 }
 
 function toggleBasket() {

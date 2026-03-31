@@ -15,8 +15,8 @@ function getMenuItemHtml(menuItem) {
                 <p class="menu-item__description">
                   ${menuItem.description}
                 </p>
-                <button class="menu-item__button" onClick="addToCart(${menuItem.id})">
-                  ${changeButtonText(menuItem.id)}
+                <button id="menu-item-btn-${menuItem.id}" class="menu-item__button" onClick="addToCart(${menuItem.id})">
+                  Add to basket
                 </button>
               </div>
             </div>`;
@@ -38,9 +38,17 @@ function getBasketItemHtml(menuItem, cartItem) {
   return `
         <div class="basket-item-container">
           <div class="basket-item">
-            <button id="trash-button" class="trash-button-absolute hidden">
-              <img class="trash-icon" src="assets/icons/delete.png"/>
-            </button>
+            ${
+              cartItem.quantity > 1
+                ? `<button
+                  onClick="removeCartItem(${cartItem.id})"
+                  class="trash-button-absolute"
+                >
+                  <img class="trash-icon" src="assets/icons/delete.png" />
+                </button>`
+                : ""
+            }
+            
             <p class="basket-item__title">${menuItem.name}</p>
             <div class="basket-item-price-container">
 
