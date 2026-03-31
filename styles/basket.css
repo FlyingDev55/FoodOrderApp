@@ -166,10 +166,6 @@
   cursor: pointer;
 }
 
-.trash-button-absolute.hidden {
-  visibility: hidden;
-}
-
 /************************************ Media Queries ********************************************/
 /**************************************** Tablet ***********************************************/
 /**********************************  (max-width: 650px) *******************************/
@@ -187,5 +183,10 @@
 
   .basket.hidden {
     transform: translateY(100%);
+    display: none;
+  }
+
+  .menu-section {
+    margin-bottom: 100px;
   }
 }

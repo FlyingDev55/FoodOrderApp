@@ -68,15 +68,27 @@ function updateUI(id) {
 }
 
 function renderCart() {
+  if (window.innerWidth <= 650) toggleBasket();
+
   resetBasketHtml();
-  const basketItems = document.getElementById("basket-items");
-  const basketTotal = document.getElementById("basket-total");
 
   if (cart.length === 0) {
     document.getElementById("basket").innerHTML = getEmptyBasketHtml();
     return;
   }
 
+  renderBasketItems();
+
+  let subtotal = calculateSubTotal();
+  let fee = calculateFee(subtotal);
+  let total = calculateTotal(subtotal, fee);
+
+  const basketTotal = document.getElementById("basket-total");
+  basketTotal.innerHTML = getBasketTotalHtml(subtotal, fee, total);
+}
+
+function renderBasketItems() {
+  const basketItems = document.getElementById("basket-items");
   basketItems.innerHTML = cart
     .map((cartItem) => {
       const menuItem = menuItems.find((menuItem) => menuItem.id == cartItem.id);
@@ -84,12 +96,6 @@ function renderCart() {
       return getBasketItemHtml(menuItem, cartItem);
     })
     .join("");
-
-  let subtotal = calculateSubTotal();
-  let fee = calculateFee(subtotal);
-  let total = calculateTotal(subtotal, fee);
-
-  basketTotal.innerHTML = getBasketTotalHtml(subtotal, fee, total);
 }
 
 function resetBasketHtml() {
@@ -145,7 +151,8 @@ function closeOrderedDialog() {
   basket.classList.remove("hidden");
   dialog.close();
   document.body.style.overflow = "visible";
-  updateUI();
+  renderCart();
+  renderMenu();
 }
 
 function order() {
