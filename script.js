@@ -152,6 +152,7 @@ function closeOrderedDialog() {
   document.body.style.overflow = "visible";
   renderCart();
   renderMenu();
+  toggleBasket();
 }
 
 function order() {
